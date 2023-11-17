@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="cv.css">
+    <title>CV</title>
+</head>
+
+<body>
+
+    <div id="page-wrap">
+
+        <img src="my.jpg" alt="Photo" id="pic" />
+
+        <div id="contact-info" class="vcard">
+
+            <h1 class="fn">Sergey Peshevich</h1>
+
+            <p>
+                Phone: <span class="tel">+375-29-3613XXX</span><br />
+                Email: <a class="email" href="mailto:myemail@gmail.com">myemail@gmail.com</a>
+            </p>
+        </div>
+
+        <div id="objective">
+            <p>
+                A specialist with more than twenty years of experience in the field of information technology in the banking sector. 
+                I have extensive knowledge and competencies in the implementation and support of banking, system and application software and equipment, 
+                user and customer support.
+            </p>
+        </div>
+
+        <div class="clear"></div>
+
+        <dl>
+            <dd class="clear"></dd>
+
+            <dt>Education</dt>
+            <dd>
+                <ul>
+                    <li>1993-1998 Mozyr State University</li>
+                    <li>2020 Interconnecting Cisco Networking Devices course</li>
+                    <li>2022-present Gomel State Technical University</li>
+                </ul>
+                
+            </dd>
+
+            <dd class="clear"></dd>
+            <dt>Experience</dt>
+            <dd>
+                <h2>JSC BAPB <span>Lead Engineer of IT department of the district office, 2000-2008</span></h2>
+                <h2>JSC BAPB <span>Нead of IT department of the district office, 2008-2013</span></h2>
+                <h2>JSC BAPB <span>Chief Specialist chief of the regional IT department, 2013-present</span></h2>
+            </dd>
+
+            <dd class="clear"></dd>
+            <dt>Skills</dt>
+            <dd>
+                <h2>Professional skills</h2>
+                    <ul>    
+                        <li>Installation, configuration, maintenance and repair of PCs and computer peripherals.</li>
+                        <li>Technical support for users.</li>
+                        <li>Administration Windows Server (2003-2016), AD, WSUS, Kaspersky Security Center.</li>
+                        <li>Experience with information security and anti-virus protection.</li>
+                        <li>Design, construction, administration of LAN and data networks.</li>
+                        <li>Experience in electrical, thermal and gas-using devices.</li>
+                    </ul>
+            </dd>
+
+            <dd class="clear"></dd>
+
+
+
+            <dt>Hobbies</dt>
+            <dd>
+                <ul>
+                    <li>3D printing</li> 
+                    <li>DIY project</li>
+                    <li>Reading</li>
+                    <li>Games</li>
+                    <li>Computer work</li>
+                </ul>
+            </dd>
+
+            <dd class="clear"></dd>
+
+            <dt>Projects and code examples</dt>
+            <dd>
+                <details>
+                    <summary>Projects</summary>
+                    <p>
+                        <a href="https://mysku.club/blog/diy/64635.html" target="_blank">DIY 3D printer</a>
+                    </p>
+                </details>  
+                <details>
+                    <summary>C# code example</summary>
+                        <pre>
+                            <code>
+public partial class Form1 : Form
+{
+    Random _randomiser = new Random();
+    private Point[] _points;
+    private Point _currentLocation;
+    private double HWRatio()
+    {
+        return Math.Sqrt(3) / 2;
+    }
+    private int SideLength()
+    {
+        int heigth = (int)Math.Min((double)ClientSize.Width, (ClientSize.Height-24) / HWRatio());
+        return (int)heigth - 2;
+    }
+    private int StepResolution()
+    {
+        int Step = 0;
+        double STr = SideLength() * SideLength() * Math.Sqrt(3) / 4;
+        while (STr/Math.Pow(4,Step)>= 1)
+        {
+            Step++;
+        }
+        return (int) (Math.Pow(3,Step)*1.3);
+    }
+    private void SetPointLocations(int sideLength)
+    {
+        Point midPoint = new Point(ClientSize.Width / 2, (ClientSize.Height-24) / 2);
+        _points = new Point[3];
+        _points[0] = new Point(midPoint.X, midPoint.Y - (int)(sideLength * HWRatio() / 2));
+        _points[1] = new Point(midPoint.X - sideLength / 2, midPoint.Y + (int)(sideLength * HWRatio() / 2));
+        _points[2] = new Point(midPoint.X + sideLength / 2, midPoint.Y + (int)(sideLength * HWRatio() / 2));
+    }
+    private void PlotPointLocations(Graphics g)
+    {
+        foreach (Point p in _points)
+        {
+            PlotPoint(p, g);
+        }
+    }
+    private void PlotPoint(Point p, Graphics g) 
+    {
+        Brush b = new SolidBrush(Color.Black);
+        g.FillRectangle(b, p.X, p.Y, 1, 1);
+    }
+    private void DrawNextPoint(Graphics g)
+    {
+        MoveTowardsRandomPoint();
+        PlotPoint(_currentLocation, g);
+        Application.DoEvents();
+    }
+    private void MoveTowardsRandomPoint()
+    {
+        int moveTowards=_randomiser.Next(0,3);
+        _currentLocation.X = (_currentLocation.X + _points[moveTowards].X) / 2;
+        _currentLocation.Y = (_currentLocation.Y + _points[moveTowards].Y) / 2;
+    }
+    public Form1()
+    {
+        InitializeComponent();
+        toolStripProgressBar1.Visible = false;
+        toolStripStatusLabel1.Text = "Double click for begin";
+    }
+    private void Form1_MouseDoubleClick(object sender, MouseEventArgs e)
+    {
+        toolStripStatusLabel1.Text = "Drawing";
+        toolStripProgressBar1.Visible = true;
+        toolStripProgressBar1.Maximum = StepResolution();
+        Graphics g = CreateGraphics();
+        g.Clear(Color.White);
+        int sideLength = SideLength();
+        SetPointLocations(sideLength);
+        PlotPointLocations(g);
+        _currentLocation = new Point(_points[0].X, _points[0].Y);
+        //int stRes = StepResolution();
+        for (int i = 0; i <= StepResolution(); i++)
+        {
+            toolStripProgressBar1.Value = i;
+            DrawNextPoint(g);
+        }
+        //toolStripProgressBar1.Visible = false;
+        toolStripStatusLabel1.Text = "Done!";
+    }
+}
+                                
+                        </code>
+                    </pre>
+                </details>    
+            </dd>
+
+            <dd class="clear"></dd>
+        </dl>
+
+        <div class="clear"></div>
+
+    </div>
+
+</body>
+
+</html>
