@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>VS CV</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <div class="container">
+            <header class="Header">
+                <img src="foto_s.jpg" alt="Фотография" />
+                <div class="FIO">
+                    <h1>Vladimir Semenitsky</h1>
+                    <p>Programmer</p>
+                </div>
+                <div class="img-class">
+                    <img src="code.png" alt="код" />
+                </div>
+            </header>
+        </div>
+            
+        <div class="wrapper">
+            <div class="left-col">
+                <section>
+                    <h2>Contact</h2>
+                    <ul>
+                        <li>Email: mymail@mail.com</li>
+                        <li>Phone:<br> +375 29 123-45-78</li>
+                        <li>GitHub: github.com/example</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Skills</h2>
+                    <ul>
+                        <li>Programming languages: PHP, JavaScript</li>
+                        <li>Frameworks: Laravel</li>
+                        <li>CMS: Wordpress</li>
+                        <li>Version control systems: Git</li>
+                        <li>Development tools: VSCode, Sublime Text</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Education</h2>
+                    <p>Information systems software,<br>
+                        Institute of Advanced Training and Retraining of Gomel State Technical University named after P.O. Sukhoi</p>
+                </section>
+
+                <section>
+                    <h2>English</h2>
+                    <p>Ability to read and understand technical documentation</p>
+                </section>
+            </div>
+
+            <div class="right-col">
+                <section>
+                    <h2>About me</h2>
+                    <p>
+                        An aspiring programmer with great enthusiasm and thirst for learning technology. My main goal is to create innovative solutions that make a positive contribution to the world of technology. My passion for learning and seeking new knowledge helps me quickly master new programming languages and technologies.
+
+                        My strengths include thorough problem solving, a commitment to code quality, and an openness to constructive criticism. During independent projects, I successfully implemented ideas using knowledge in the field of web development and programming languages.
+
+                        My priority is not just creating code, but solving real problems. I am convinced that with each project I get closer to achieving my ultimate goal - to become an experienced and in-demand developer. I am ready for a dynamic environment where I can contribute and gain valuable experience.
+                    </p>
+                </section>
+
+                <section>
+                    <h2>Experience</h2>
+                    <h3>Internship at the IT company "PrimerTech" (June 2022 - December 2022)</h3>
+                    <p>During my internship at the IT company PrimerTech, I gained valuable experience in software development and participated in various projects. My responsibilities included:</p>
+                    <ul>
+                        <li>Involved in the development and support of a web application based on a technology stack including HTML, CSS, PHP and JavaScript.</li>
+                        <li>Learn and apply basic principles of working with databases, including SQL.</li>
+                        <li>Active participation in team projects using the Git version control system.</li>
+                        <li>Working in a development environment such as VSCode with CMS such as Wordpress.</li>
+                    </ul>
+
+                    <p>This experience allowed me to develop programming skills, master new technologies, and contribute creatively to teamwork. I strive to continue to learn and grow in the field of programming.</p>
+                </section>
+
+                <section>
+                    <h2>Code example</h2>
+                    <div class="code-sample">
+                        <p>// Example code in PHP</p>
+                        <pre>
+                            <code>
+    /*
+    Plugin Name: Are You Paying Attention Quiz
+    Description: Give your readers a multiple choice question.
+    Version: 1.0
+    Author: VS
+    */
+
+    if( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
+    class AreYouPayingAttention {
+        function __construct() {
+        add_action('init', array($this, 'adminAssets'));
+    }
+
+    function adminAssets() {
+        register_block_type(__DIR__, array(
+        'render_callback' => array($this, 'theHTML')
+        ));
+    }
+
+    function theHTML($attributes) {
+        if(!is_admin()) {
+        wp_enqueue_script('attentionFrontend', plugin_dir_url(__FILE__) . 'build/frontend.js',array('wp-element'));
+        //wp_enqueue_style('attentionFrontendStyles',plugin_dir_url(__FILE__) . 'build/frontend.css');
+        }
+        ob_start(); ?>
+        <div class="paying-attention-update-me"><pre style="display: none;"><?php echo wp_json_encode($attributes) ?></pre></div>
+            return ob_get_clean();
+    }
+    }
+
+    $areYouPayingAttention = new AreYouPayingAttention();
+                                        </code>
+                        </pre>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </body>
+
+</html>
