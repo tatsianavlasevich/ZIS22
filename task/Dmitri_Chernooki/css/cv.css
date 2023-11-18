@@ -1,0 +1,129 @@
+body {
+   font-family: "Arial";
+}
+
+.table1
+{
+   border: 0px solid #000000;
+   width: 100%;
+}
+
+.table1 tr
+{
+   vertical-align: top;
+}
+
+.table1 td
+{
+   border: 0px solid #000000;
+}
+
+.td1
+{
+   background-color: #FFFFFF;
+}
+
+.td2
+{
+   background-color: #404040;
+}
+
+.td3
+{
+   background-color: #F0FFF0
+}
+
+.img1
+{
+   text-align: center;
+}
+
+.img3
+{
+   position: relative;
+   right: 8px;
+}
+
+.img5, .img6
+{
+   position: relative;
+   top: 3px;
+}
+
+.img7
+{
+   position: relative;
+   top: 18px;
+}
+
+.p0
+{
+   font-size: 300%;
+   font-weight: bold;
+   text-align: left;
+   text-transform: uppercase;
+   color: #FFA000;
+   margin-top: 0px;
+   margin-bottom: 30px;
+   margin-left: 20px;
+   padding: 0px;
+}
+
+.p1
+{
+   font-size: 120%;
+   font-weight: bold;
+   text-align: left;
+   text-transform: uppercase;
+   color: #FFFFFF;
+   position: absolute;
+   top: 4px;
+   left: 15px;
+   margin: 0px;
+   padding: 0px;
+}
+
+.p2
+{
+   text-align: left;
+   color: #FFFFFF;
+   position: relative;
+   left: 15px;
+   margin: 10;
+   padding: 4px;
+}
+
+.p3
+{
+   color: #FFFFFF;
+   position: relative;
+   left: 15px;
+   margin: 5px;
+   padding: 20px;
+}
+
+.p4
+{
+   color: #404040;
+   position: relative;
+   font-weight: bold;
+   left: 15px;
+   margin: 5px;
+   padding: 20px;
+}
+
+.p5
+{
+   color: #F0A000;
+   position: relative;
+   font-weight: bold;
+   left: 35px;
+   margin: 0px;
+   padding: 5px;
+}
+
+li
+{
+   list-style-image: url(../images/img4.gif);
+   padding: 5px;
+}
